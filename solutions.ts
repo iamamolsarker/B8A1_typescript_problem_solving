@@ -1,4 +1,4 @@
-const multiplyValue = (value: number, multiplier = 2) => {
+const multiplyValue = (value: number, multiplier = 2) :number=> {
   return value * multiplier;
 };
 
@@ -16,3 +16,6 @@ const formatCoordinate =([latitude, longitude, locationName]:readonly[number, nu
 return `Location: ${locationName} (${latitude}, ${longitude})`; 
 }
 
+const concatenateArrays = <T> (...array: T[][]) : T[] =>{
+    return array.flat();
+}
