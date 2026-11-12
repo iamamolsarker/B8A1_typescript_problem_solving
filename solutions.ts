@@ -1,4 +1,4 @@
-const multiplyValue = (value: number, multiplier = 2) :number=> {
+const multiplyValue = (value: number, multiplier = 2): number => {
   return value * multiplier;
 };
 
@@ -12,10 +12,24 @@ const processInput = (value: string | number | boolean) => {
   }
 };
 
-const formatCoordinate =([latitude, longitude, locationName]:readonly[number, number, string]) =>{
-return `Location: ${locationName} (${latitude}, ${longitude})`; 
+const formatCoordinate = ([latitude, longitude, locationName]: readonly [
+  number,
+  number,
+  string,
+]) => {
+  return `Location: ${locationName} (${latitude}, ${longitude})`;
+};
+
+const concatenateArrays = <T>(...array: T[][]): T[] => {
+  return array.flat();
+};
+
+interface Course {
+  title: string;
+  students: number;
+  isPublished: boolean;
 }
 
-const concatenateArrays = <T> (...array: T[][]) : T[] =>{
-    return array.flat();
+const getPopularCourses =(courses : Course[], minStudents: number): Course[]=>{
+ return courses.filter(course => minStudents <= course.students && course.isPublished);
 }
