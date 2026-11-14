@@ -3,7 +3,9 @@ TypeScript-এ আমরা যখন একাধিক type নিয়ে �
 নিচে কিছু উদাহরণসহ জিনিসগুলোকে দেওয়া হলো।
 
 যেমন, 
-//type guard
+
+```ts
+// type guard
 
 const print = (value: string | number) => {
   if (typeof value === "string") {
@@ -12,7 +14,9 @@ const print = (value: string | number) => {
     return value;
   }
 };
+```
 
+```ts
 // in - operator
 
 interface Bird {
@@ -22,28 +26,31 @@ interface Fish {
   swim: () => void;
 }
 
-const move =(animal:Bird | Fish) =>{
-    if("fly" in animal){
-        animal.fly();
-        return;
-    }
+const move = (animal: Bird | Fish) => {
+  if ("fly" in animal) {
+    animal.fly();
+    return;
+  }
 
-    animal.swim();
-}
+  animal.swim();
+};
+```
 
+```ts
 // instanceof
 
 const date = new Date();
 console.log(date instanceof Date);
-const err = new Error("Something went wrong!")
+const err = new Error("Something went wrong!");
 console.log(err instanceof Error);
 
-const showDate = (x : Date | string) =>{
-    if(x instanceof Date){
-        console.log(x.toISOString());
-        return;
-    }
-    const date = new Date(x);
-    console.log(date.toISOString());
-}
-showDate(new Date("1991-05-15"))
+const showDate = (x: Date | string) => {
+  if (x instanceof Date) {
+    console.log(x.toISOString());
+    return;
+  }
+  const date = new Date(x);
+  console.log(date.toISOString());
+};
+showDate(new Date("1991-05-15"));
+```
